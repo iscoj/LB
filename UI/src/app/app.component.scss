@@ -1,7 +1,13 @@
-.example-icon {
+.global-icon {
   padding: 0 14px;
 }
 
-.example-spacer {
+.global-spacer {
   flex: 1 1 auto;
+}
+
+.global-context {
+  width: 1000px;
+  margin: 8px auto 0px auto;
+  padding: 10px;
 }

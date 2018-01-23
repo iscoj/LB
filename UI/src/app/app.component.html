@@ -1,14 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
 <mat-toolbar color="primary">
   <mat-toolbar-row>
+    
     <span>友借友还</span>
 
-    <span class="example-spacer"></span>
+    <span class="global-spacer"></span>
 
     <button routerLink="" mat-button>首页</button>
     <button routerLink="lend" mat-button>借还</button>
     <button mat-button>关于</button>
   </mat-toolbar-row>
 </mat-toolbar>
+<nav class="global-context">
+  <span *ngFor="let lk of links; last as last">
+    <a *ngIf="!last" routerLink="{{lk.link}}">{{lk.name}}</a>
+    <a *ngIf="last">{{lk.name}}</a>
+    <span *ngIf="!last">&nbsp;|&nbsp;</span>
+  </span>
+</nav>
+<div class="global-context">
 
-<router-outlet></router-outlet>
+  
+    <router-outlet></router-outlet>
+  
+</div>

@@ -3,17 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Services.Models.Entity;
 
 namespace Services.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        LendContext lendContext;
+        public ValuesController(LendContext _lendContext)
+        {
+            lendContext = _lendContext;
+        }
+        [ActionName("GetUser")]
+        public object GetUser()
+        {
+            return lendContext.Users.FirstOrDefault();
+        }
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            return lendContext.Users;
         }
 
         // GET api/values/5
